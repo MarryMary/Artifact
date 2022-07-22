@@ -1,0 +1,12 @@
+{
+    "name": "mary/artifact",
+    "type": "library",
+    "description": "Get the string into brackets",
+    "homepage": "https://github.com/MarryMary/Artifact",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MarryMary"
+        }
+    ]
+}
