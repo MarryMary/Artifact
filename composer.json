@@ -8,5 +8,10 @@
         {
             "name": "MarryMary"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-0": {
+            "MarryMary\\Artifact": "./"
+        }
+    }
 }
