@@ -155,6 +155,26 @@ class Typer{
     }
 
     public function startswith(String $needle, String $target, Bool $trim_spaceandtab = False){
+        $analyzer = mb_str_split($this->trim_all($this->trim_all($target), "\t"));
+        $limit = count($analyzer);
+        $read_start = "";
+
+        for($i = 0; $i < $limit; $i++){
+            if(array_key_exists($i, $analyzer)){
+                $read_start .= $analyzer[$i];
+            }else{
+                break;
+            }
+        }
+
+        if($needle == $read_start){
+            return True;
+        }else{
+            return False;
+        }
+    }
+
+    public function endswith(String $needle, String $target, Bool $trim_spaceandtab = False){
         $analyzer = array_reverse(mb_str_split($this->trim_all($this->trim_all($target), "\t")));
         $limit = count($analyzer);
         $read_end = "";
@@ -173,6 +193,7 @@ class Typer{
             return False;
         }
     }
+
 
     public function str_compressor(String $string){
         $analyzer = mb_str_split($string);
@@ -242,12 +263,6 @@ class Typer{
 
     public function str_allreplace(String $replaced, String $target){
         return  str_repeat($replaced, mb_strlen($target, "UTF8"));
-    }
-
-    public function endswith(String $needle, String $target, Bool $trim_spaceandtab = False){
-        $analyzer = mb_str_split($this->trim_all($this->trim_all($target), "\t"));
-        $limit = count($analyzer);
-        $read_start = "";
     }
 
 
